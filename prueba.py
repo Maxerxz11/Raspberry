@@ -1,8 +1,7 @@
-import board
 import adafruit_dht
 import time
 
-pin = board.D4
+pin = 4
 
 dht_sensor = adafruit_dht.DHT22(pin)
 
