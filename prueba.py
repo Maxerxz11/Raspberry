@@ -12,8 +12,8 @@ try:
         temperature = dht_sensor.temperature
         humidity = dht_sensor.humidity
 
-        print(f'Temperatura: {temperature:.2f}°C')
-        print(f'Humedad: {humidity:.2f}%')
+        print(temperature)
+        print(humidity)
 
         time.sleep(2)
 
