@@ -1,8 +1,7 @@
 import board
 import adafruit_dht
 
-# Configura el pin GPIO al que está conectado el sensor
-pin = board.D4  # Reemplaza con el número de pin correcto
+pin = board.D4
 
 # Inicializa el sensor
 dht_sensor = adafruit_dht.DHT22(pin)
