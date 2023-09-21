@@ -15,4 +15,4 @@ while True:
         print("----------------------------------------------")
     else:
         print("Error[-]")
-    time.sleep(3.0)
+    time.sleep(2.0)
