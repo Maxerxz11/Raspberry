@@ -1,22 +1,6 @@
-import adafruit_dht
-import time
-
-pin = 4
-
-dht_sensor = adafruit_dht.DHT22(pin)
-
-try:
-    while True:
-
-        temperature = dht_sensor.temperature
-        humidity = dht_sensor.humidity
-
-        print(temperature)
-        print(humidity)
-
-        time.sleep(2)
-
-except KeyboardInterrupt:
-    pass
-
-dht_sensor.exit()
+import board
+ import digitalio
+ import busio print ( "¡Hola, flash!" ) # Intenta crear un 
+pin de entrada digital = digitalio.DigitalInOut(board.D4) print ( "Digital IO ok!" ) # Intenta crear un dispositivo I2C 
+i2c = busio .I2C(board.SCL, board.SDA) print ( "¡I2C ok!" ) # Intente crear un dispositivo SPI 
+spi = busio.SPI(board.SCLK, board.MOSI, board.MISO) print ( "SPI ok! " ) imprimir ( "¡hecho!" )
