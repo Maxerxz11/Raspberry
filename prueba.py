@@ -3,7 +3,7 @@ import board
 import adafruit_dht
 
 
-dht_sensor = adafruit_dht.DHT22(board.D18)
+dht_sensor = adafruit_dht.DHT22(24)
 
 while True:
     temperatura = dht_sensor.temperature  # Variables para leer la temperatura
