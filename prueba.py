@@ -1,18 +1,26 @@
 import board
 import adafruit_dht
+import time
 
-pin = board.D4
+# Configura el pin GPIO al que está conectado el sensor DHT
+pin = board.D4  # Reemplaza 'D4' con el número de pin GPIO que estás utilizando
 
 # Inicializa el sensor
 dht_sensor = adafruit_dht.DHT22(pin)
 
 try:
-    # Lee la temperatura y la humedad
-    temperature = dht_sensor.temperature
-    humidity = dht_sensor.humidity
+    while True:
+        # Lee la temperatura y la humedad
+        temperature = dht_sensor.temperature
+        humidity = dht_sensor.humidity
 
-    print(temperature)
-    print(humidity)
+        print(f'Temperatura: {temperature:.2f}°C')
+        print(f'Humedad: {humidity:.2f}%')
 
-except RuntimeError as e:
-    print("Error")
+        time.sleep(2)  # Espera 2 segundos antes de la siguiente lectura
+
+except KeyboardInterrupt:
+    pass
+
+# Cierra el sensor al finalizar
+dht_sensor.exit()
