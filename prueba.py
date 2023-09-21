@@ -1,20 +1,19 @@
-import time
-import Adafruit_DHT
+import board
+import adafruit_dht
 
-sensor = Adafruit_DHT.DHT22
-pin = 23
+# Configura el pin GPIO al que está conectado el sensor
+pin = board.D4  # Reemplaza con el número de pin correcto
 
-while True:
-    # LO que hago aca es declarar una varible de temperatura para sacar analizar con el sencor la funcion read es para leer sus datos
-    humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+# Inicializa el sensor
+dht_sensor = adafruit_dht.DHT22(pin)
 
-    if humidity is not None and temperature is not None:
-        print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
-    else:
-        print("Error[-]")
+try:
+    # Lee la temperatura y la humedad
+    temperature = dht_sensor.temperature
+    humidity = dht_sensor.humidity
 
-except KeyboardInterrupt:
-    print('Lectura del sensor detenida por el usuario.')
+    print(f'Temperatura: {temperature:.2f}°C')
+    print(f'Humedad: {humidity:.2f}%')
 
-except Exception as e:
+except RuntimeError as e:
     print(f'Error: {e}')
