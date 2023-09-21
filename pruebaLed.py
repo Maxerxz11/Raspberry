@@ -1,4 +1,4 @@
-import timer
+import time
 import Adafruit_DHT
 
 sencor = Adafruit_DHT.DHT22
