@@ -6,10 +6,10 @@ import adafruit_dht
 sensor = adafruit_dht.DHT22(board.D4)
 
 while True:
-    temperature = dht_device.temperature  # Variables para leer la temperatura
+    temperatura = sensor.temperatura  # Variables para leer la temperatura
 
-    if temperature is not None:
-        print(temperature)
+    if temperatura is not None:
+        print(temperatura)
 
     else:
         print("Error[-]")
