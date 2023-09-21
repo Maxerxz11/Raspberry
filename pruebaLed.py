@@ -9,9 +9,9 @@ while True:
     humedad, temperatura = Adafruit_DHT.read_retry(sensor, pin)
 
     if temperatura is not None:
+        print("La temperatura es {}".format(temperatura, humedad))
         print(temperatura)
         print(humedad)
-        print("La temperatura es {}".format(temperatura, humedad))
 
     else:
         print("Error[-]")
