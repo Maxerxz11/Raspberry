@@ -1,8 +1,7 @@
-import time
 import Adafruit_DHT
 import RPi.GPIO as GPIO
 import time
-
+GPIO.setmode(GPIO.BCM)
 
 red = 17
 green = 23
