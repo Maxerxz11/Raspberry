@@ -2,15 +2,14 @@ import time
 import Adafruit_DHT
 import RPi.GPIO as GPIO
 
-# Establece el modo de numeración de pines (por ejemplo, BCM)
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 sensor = Adafruit_DHT.DHT22
-sensor_pin = 4
-RED_PIN = 17
-GREEN_PIN = 18
-BLUE_PIN = 27
+sensor_pin = 7
+RED_PIN = 11
+GREEN_PIN = 12
+BLUE_PIN = 13
 
 while True:
     humedad, temperatura = Adafruit_DHT.read_retry(sensor, sensor_pin)
