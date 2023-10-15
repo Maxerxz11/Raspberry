@@ -2,7 +2,6 @@ import time
 import Adafruit_DHT
 import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
 
 
 sensor = Adafruit_DHT.DHT22
