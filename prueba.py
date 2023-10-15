@@ -1,20 +1,29 @@
-import RPI.GPIO as GPIO
-GPIO.setmode(GPIO.BOARD)
+import RPi.GPIO as GPIO
+import time
 
-GPIO.setup(11, GPIO.OUT)
-GPIO.output(11, 1)
-GPIO.setup(13, GPIO.OUT)
-GPIO.output(13, 1)
-GPIO.setup(15, GPIO.OUT)
-GPIO.output(15, 1)
+# Configura los pines GPIO
+RED_PIN = 17
+GREEN_PIN = 18
+BLUE_PIN = 27
 
-try:
-    while (True):
-        pregunta = input("RGB:")
-        if (len(pregunta) == 3):
-            GPIO.output(11, int(pregunta[0]))
-            GPIO.output(13, int(pregunta[1]))
-            GPIO.output(15, int(pregunta[2]))
+# Configura el modo de los pines
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(RED_PIN, GPIO.OUT)
+GPIO.setup(GREEN_PIN, GPIO.OUT)
+GPIO.setup(BLUE_PIN, GPIO.OUT)
 
-except KeyboardInterrupt:
-    GPIO.cleanup()
+# Enciende el LED en rojo
+GPIO.output(RED_PIN, GPIO.HIGH)
+GPIO.output(GREEN_PIN, GPIO.LOW)
+GPIO.output(BLUE_PIN, GPIO.LOW)
+
+# Espera unos segundos
+time.sleep(3)
+
+# Apaga el LED
+GPIO.output(RED_PIN, GPIO.LOW)
+GPIO.output(GREEN_PIN, GPIO.LOW)
+GPIO.output(BLUE_PIN, GPIO.LOW)
+
+# Limpia los pines GPIO
+GPIO.cleanup()
