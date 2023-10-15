@@ -39,8 +39,4 @@ while True:
         GPIO.output(GREEN_PIN, GPIO.LOW)
         GPIO.output(RED_PIN, GPIO.LOW)
 
-    else:
-        print("Error[-]")
-    time.sleep(2.0)
-
-GPIO.cleanup()
+    GPIO.cleanup()
