@@ -1,3 +1,4 @@
+# https://pimylifeup.com/raspberry-pi-humidity-sensor-dht22/
 import time
 import Adafruit_DHT
 
