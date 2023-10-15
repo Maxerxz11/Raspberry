@@ -37,6 +37,5 @@ while True:
         GPIO.output(GREEN_PIN, GPIO.LOW)
         GPIO.output(RED_PIN, GPIO.LOW)
 
-    else:
-        time.sleep(2)
-        GPIO.cleanup()
+    time.sleep(2)
+    GPIO.cleanup()
