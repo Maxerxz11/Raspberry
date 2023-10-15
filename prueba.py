@@ -15,7 +15,7 @@ while True:
     humedad, temperatura = Adafruit_DHT.read_retry(sensor, pin)
 
     if temperatura is not None and temperatura > 18:
-        GPIO.setup(red, GPIO.OUT)
+        GPIO.setup(blue, GPIO.OUT)
 
         print(f'Temperatura: {temperatura:.2f}°C')
         print("----------------------------------------------")
