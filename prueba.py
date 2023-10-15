@@ -1,16 +1,19 @@
+import RPi.GPIO as GPIO
 import time
-import adafruit_dht
-from board import pin
 
-dht_sensor = adafruit_dht.DHT22(18)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+GPIO.cleanup()
 
-while True:
-    temperatura = dht_sensor.temperature  # Variables para leer la temperatura
-    print(temperatura)
-#    if temperatura is not None:
-#        print(f'Temperatura: {temperature:.2f}°C')
+red = 11
+green = 10
+blue = 15
 
-#    else:
- #       print("Error[-]")
 
-    time.sleep(1.0)
+GPIO.setup(red, GPIO.OUT)
+GPIO.setup(green, GPIO.OUT)
+GPIO.setup(blue, GPIO.OUT)
+
+while (True):
+    print('red')
+    GPIO.output(blue, GPIO.HIGH)
