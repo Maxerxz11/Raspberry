@@ -21,6 +21,15 @@ while True:
         print("----------------------------------------------")
         print(f'Humedad: {humedad:.2f}%')
         print("----------------------------------------------")
+
+    elif temperatura is not None and temperatura < 18:
+        GPIO.setup(blue, GPIO.OUT)
+
+        print(f'Temperatura: {temperatura:.2f}°C')
+        print("----------------------------------------------")
+        print(f'Humedad: {humedad:.2f}%')
+        print("----------------------------------------------")
+
     else:
         print("Error[-]")
     time.sleep(2.0)
