@@ -1,35 +1,20 @@
-import Adafruit_DHT
-import RPi.GPIO as GPIO
-import time
-GPIO.setmode(GPIO.BCM)
+import RPI.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
 
-red = 17
-green = 23
-blue = 22
+GPIO.setup(11, GPIO.OUT)
+GPIO.output(11, 1)
+GPIO.setup(13, GPIO.OUT)
+GPIO.output(13, 1)
+GPIO.setup(15, GPIO.OUT)
+GPIO.output(15, 1)
 
-sensor = Adafruit_DHT.DHT22
-pin = 4
+try:
+    while (True):
+        pregunta = input("RGB:")
+        if (len(pregunta) == 3):
+            GPIO.output(11, int(pregunta[0]))
+            GPIO.output(13, int(pregunta[1]))
+            GPIO.output(15, int(pregunta[2]))
 
-while True:
-    # LO que hago aca es declarar una varible de temperatura para sacar analizar con el sencor la funcion read es para leer sus datos
-    humedad, temperatura = Adafruit_DHT.read_retry(sensor, pin)
-
-    if temperatura is not None and temperatura > 18:
-        GPIO.setup(red, GPIO.OUT)
-
-        print(f'Temperatura: {temperatura:.2f}°C')
-        print("----------------------------------------------")
-        print(f'Humedad: {humedad:.2f}%')
-        print("----------------------------------------------")
-
-    elif temperatura is not None and temperatura < 18:
-        GPIO.setup(blue, GPIO.OUT)
-
-        print(f'Temperatura: {temperatura:.2f}°C')
-        print("----------------------------------------------")
-        print(f'Humedad: {humedad:.2f}%')
-        print("----------------------------------------------")
-
-    else:
-        print("Error[-]")
-    time.sleep(2.0)
+except KeyboardInterrupt:
+    GPIO.cleanup()
