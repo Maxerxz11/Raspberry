@@ -30,6 +30,15 @@ while True:
         print(f'Humedad: {humedad:.2f}%')
         print("----------------------------------------------")
 
+    elif temperatura is not None and temperatura < 18:
+        GPIO.output(RED_PIN, GPIO.LOW)
+        GPIO.output(GREEN_PIN, GPIO.LOW)
+        GPIO.output(BLUE_PIN, GPIO.LOW)
+
+        GPIO.output(BLUE_PIN, GPIO.HIGH)
+        GPIO.output(GREEN_PIN, GPIO.LOW)
+        GPIO.output(RED_PIN, GPIO.LOW)
+
     else:
         print("Error[-]")
     time.sleep(2.0)
