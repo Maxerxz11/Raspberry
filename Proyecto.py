@@ -10,12 +10,13 @@ sensor_pin = 4
 RED_PIN = 17
 GREEN_PIN = 18
 BLUE_PIN = 27
+GPIO.cleanup()
 
 
 while True:
     # LO que hago aca es declarar una varible de temperatura para sacar analizar con el sencor la funcion read es para leer sus datos
     humedad, temperatura = Adafruit_DHT.read_retry(sensor, sensor_pin)
-    GPIO.cleanup()
+
     if temperatura is not None and temperatura > 20:
         GPIO.setup(RED_PIN, GPIO.OUT)
         GPIO.setup(GREEN_PIN, GPIO.OUT)
@@ -44,3 +45,4 @@ while True:
         print(f'Humedad: {humedad:.2f}%')
         print("----------------------------------------------")
     time.sleep(2.0)
+    GPIO.cleanup()
