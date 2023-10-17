@@ -44,6 +44,4 @@ while True:
         print(f'Humedad: {humedad:.2f}%')
         print("----------------------------------------------")
 
-    else:
-        print("Error[-]")
     time.sleep(2.0)
