@@ -7,10 +7,10 @@ GPIO.setmode(GPIO.BCM)
 
 sensor = Adafruit_DHT.DHT22
 sensor_pin = 4
+i = 0
 RED_PIN = 17
 GREEN_PIN = 18
 BLUE_PIN = 27
-i = 0
 GPIO.setup(RED_PIN, GPIO.OUT)
 GPIO.setup(GREEN_PIN, GPIO.OUT)
 GPIO.setup(BLUE_PIN, GPIO.OUT)
@@ -20,7 +20,6 @@ while i < 100:
     humedad, temperatura = Adafruit_DHT.read_retry(sensor, sensor_pin)
 
     if temperatura is not None and temperatura > 20:
-
         GPIO.output(RED_PIN, GPIO.HIGH)
         GPIO.output(GREEN_PIN, GPIO.LOW)
         GPIO.output(BLUE_PIN, GPIO.LOW)
