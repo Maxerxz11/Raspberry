@@ -10,4 +10,10 @@ while True:
 
     datos = GPIO.input(pin_main)  # con este input leeo los datos del pin
 
-    print(f"La humedad es: {datos}")
+    if datos == 0:
+        print(f"{datos} la planta esta muy seca")
+
+    elif datos == 1:
+        print(f"{datos} la planta esta humeda")
+
+    time.sleep(1.0)
